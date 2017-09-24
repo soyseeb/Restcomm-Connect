@@ -20,6 +20,7 @@
 package org.restcomm.connect.dao.entities;
 
 import java.net.URI;
+import java.util.List;
 
 import org.joda.time.DateTime;
 
@@ -46,6 +47,7 @@ public final class Account {
     private final String role;
     private final URI uri;
     private final Sid organizationSid;
+    private List<Permission> permissions;
 
     public Account(final Sid sid, final DateTime dateCreated, final DateTime dateUpdated, final String emailAddress,
                    final String friendlyName, final Sid parentSid, final Type type, final Status status, final String authToken,
@@ -115,6 +117,14 @@ public final class Account {
 
     public Sid getOrganizationSid() {
         return organizationSid;
+    }
+
+    public List<Permission> getPermissions() {
+        return this.permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
     }
 
     public Account setEmailAddress(final String emailAddress) {
@@ -208,6 +218,7 @@ public final class Account {
         private String role;
         private URI uri;
         private Sid organizationSid;
+        private List<Permission> permissions;
 
         private Builder() {
             super();
@@ -256,6 +267,10 @@ public final class Account {
 
         public void setUri(final URI uri) {
             this.uri = uri;
+        }
+
+        public void setPermissions(final List<Permission> permissions) {
+            this.permissions = permissions;
         }
     }
 }
