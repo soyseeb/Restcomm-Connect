@@ -19,7 +19,6 @@
  */
 package org.restcomm.connect.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.restcomm.connect.dao.exceptions.AccountHierarchyDepthCrossed;
@@ -144,10 +143,9 @@ public interface AccountsDao {
     /**
     *
     * @param account
-    * @param array of permissions
     * @return
     */
-    void clearAccountPermissions(Sid accountSid, ArrayList<Permission> permissions);
+    void clearAccountPermissions(Sid accountSid);
 
     /**
     *
