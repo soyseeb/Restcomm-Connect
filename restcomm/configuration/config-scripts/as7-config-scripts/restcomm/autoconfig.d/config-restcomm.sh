@@ -135,7 +135,7 @@ configDidProvisionManager() {
                 sed -i "s|phone-number-provisioning class=\".*\"|phone-number-provisioning class=\"org.restcomm.connect.provisioning.number.nexmo.NexmoPhoneNumberProvisioningManager\"|" $FILE
 
                 sed -i "/<callback-urls>/ {
-                    N; s|<voice url=\".*\" method=\".*\" />|<voice url=\"$5:$8\" method=\"SIP\" />|
+                    N; s|<voice url=\".*\" method=\".*\" />|<voice url=\"$5\" method=\"SIP\" />|
                     N; s|<sms url=\".*\" method=\".*\" />|<sms url=\"\" method=\"\" />|
                     N; s|<fax url=\".*\" method=\".*\" />|<fax url=\"\" method=\"\" />|
                     N; s|<ussd url=\".*\" method=\".*\" />|<ussd url=\"\" method=\"\" />|
