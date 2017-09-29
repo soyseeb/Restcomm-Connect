@@ -350,10 +350,9 @@ public final class MybatisAccountsDao implements AccountsDao {
 
     @Override
     public void updateAccountPermissions(Sid account_sid1, Permission permission) {
-        // TODO Auto-generated method stub
         final SqlSession session = sessions.openSession();
         try {
-            session.insert(namespace + "updateAccountPermission", toMap(account_sid1, permission));
+            session.update(namespace + "updateAccountPermission", toMap(account_sid1, permission));
             session.commit();
         } finally {
             session.close();
@@ -367,7 +366,7 @@ public final class MybatisAccountsDao implements AccountsDao {
         map.put("account_sid", account_sid1.toString());
 
         try {
-            session.insert(namespace + "clearAccountPermissions", map);
+            session.delete(namespace + "clearAccountPermissions", map);
             session.commit();
         } finally {
             session.close();
@@ -381,7 +380,7 @@ public final class MybatisAccountsDao implements AccountsDao {
         map.put("account_sid", account_sid1.toString());
         map.put("permission_sid", permission_sid1.toString());
         try {
-            session.insert(namespace + "deleteAccountPermission", map);
+            session.delete(namespace + "deleteAccountPermission", map);
             session.commit();
         } finally {
             session.close();
@@ -395,7 +394,7 @@ public final class MybatisAccountsDao implements AccountsDao {
         map.put("account_sid", account_sid1.toString());
         map.put("permission_name", permission_name.toString());
         try {
-            session.insert(namespace + "deleteAccountPermissionByName", map);
+            session.delete(namespace + "deleteAccountPermissionByName", map);
             session.commit();
         } finally {
             session.close();
